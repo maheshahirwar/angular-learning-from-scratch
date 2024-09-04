@@ -4,7 +4,7 @@ Step to start with angular :
 1. Download Node.js and install
 2. open cmd and check npm -v
 3. if it is install successfully, then install angular in your system.
-4. open cmd and tyoe npm install angular cli
+4. open cmd and tyoe npm install -g @angular/cli
 5. now check ng v.
 6. for start with first project.
 7. create new angular application using ng new app --no-standalone if you use new version otherwise you can ignore --no-standalone
