@@ -1,1 +1,23 @@
-<p>my-component works!</p>
+<!-- Interpolation {{}} -->
+<p>my external component !! Hello {{courseName}}</p>
+
+<!-- Template expression -->
+ <div>
+    <h4>{{num % 2 == 0 ? 'Even Number' : 'Odd Number' }}</h4>
+ </div>
+
+ <!-- Template statements () = statement -->
+
+ <div>
+    <p>My course :: {{courseName}}</p>
+    <p (click)="changeName()">click here to change name to typescript</p>
+ </div>
+ 
+ <!-- Template variable  -->
+
+ <div>
+   Enter the name :  <input type="text" #uName placeholder="Enter your name"> 
+   <button (click)="showUser(uName.value)">Show</button>
+
+   <p>{{username}}</p>
+ </div>
