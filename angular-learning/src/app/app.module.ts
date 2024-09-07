@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MyModuleModule } from './my-module/my-module.module';
 import { MyComponentComponent } from './my-component/my-component.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { MyComponentComponent } from './my-component/my-component.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MyModuleModule
+    MyModuleModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()
