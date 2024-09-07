@@ -25,4 +25,42 @@ export class MyComponentComponent {
   showUser(user:string){
     this.username = user;
   }
+
+  imageUri = "google.png";
+
+  noOfColumns = 2;
+  noOfRows = 2;
+
+  applyClass = true;
+
+  applyStyle = true;
+
+  styleObj1 = {
+    backgroundColor: 'orange',
+    color: 'black'
+  }
+  styleObj2 = {
+    backgroundColor: 'greenyellow',
+    color: 'white'
+  }
+
+  mouse = "";
+  onMouse(){
+    console.log("mouse over the element ");
+    
+    this.mouse = "mouse is over the element";
+  }
+
+  onMouseLeave(){
+    console.log("mouse leave the element ");
+    this.mouse = "";
+  }
+
+  userName!:string;
+  password!:string;
+
+  successMessage!:string;
+  submit(){
+    this.successMessage = "submitted successfully!!";
+  }
 }

@@ -21,3 +21,77 @@
 
    <p>{{username}}</p>
  </div>
+
+ <hr>
+
+ <div>
+  ============ data binding ==============
+ </div>
+
+ <!-- property binding  -->
+ <img src="{{imageUri}}" alt="Google image"> or
+ <img [src]="imageUri" alt="Google image"> or 
+ <img bind-src="imageUri" alt="Google image"> 
+
+ <!-- attribute binding  -->
+
+ <table class="table table-responsive table-bordered text-center table-shadow table-striped table-hover border-primary">
+   <thead>
+      <tr>
+        <th rowspan="noOfRows" class="align-middle">Name</th>
+        <th [attr.colspan]="noOfColumns">Marks</th>
+      </tr>
+      <tr>
+         <th>Test</th>
+         <th>Retest</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td class="align-middle">John Doe</td>
+         <td>78</td>
+         <td class="font-weight-bold">NA</td>
+      </tr>
+      <tr>
+         <td class="table-active">Emily Carter</td>
+         <td>48</td>
+         <td>86</td>
+       </tr>
+    </tbody>
+</table>
+
+<!-- class binding  -->
+<button [class]="applyClass?'btn btn-primary':'btn btn-success'">Click Me!!</button> <br>
+<button [class.btn-success]="applyClass" [class.btn]="applyClass">Click Me!!</button> <br>
+<button [class]="applyClass ? 'btn btn-success mr-5' :'btn btn-primary mr-5'">Click Me!!</button> <br><br>
+
+<!-- style binding  -->
+<button [style.background-color]="applyStyle ? 'pink' : 'green' ">Click here !!</button> <br>
+<button [style.background-color]="applyStyle ? 'orange' : 'greenyellow'" [style.color]="applyStyle ? 'black' : 'white'">Click Me!!</button> <br>
+<button [style]="applyStyle ? styleObj1 : styleObj2">Click Me!!</button> <br><br>
+
+<!-- event binding  -->
+<div (mouseover)="onMouse()"  on-mouseleave="onMouseLeave()"> click here to see events</div><br> <br>
+
+<div>Hii : {{mouse}}</div> <br><br>
+
+<!-- two way binding  -->
+
+<form class="form">
+   <div class="form-group">
+   <label for="userName">Username : </label> &nbsp; <span class="text-danger">{{userName}}</span>
+   <input class="form-control" type="text" name="userName" [(ngModel)]="userName">
+   </div>
+   <div class="form-group">
+      <label for="password">Password : </label> &nbsp; <span class="text text-danger">{{password}}</span>
+      <input class="form-control" type="password"  name="password" [(ngModel)]="password">
+   </div>
+
+   <button class="btn btn-primary" on-click="submit()">submit</button>
+</form> <br>
+
+<div class="text text-success">{{successMessage}}</div>
+
+
+
+
