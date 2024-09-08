@@ -2,62 +2,62 @@
 <p>my external component !! Hello {{courseName}}</p>
 
 <!-- Template expression -->
- <div>
-    <h4>{{num % 2 == 0 ? 'Even Number' : 'Odd Number' }}</h4>
- </div>
+<div>
+  <h4>{{num % 2 == 0 ? 'Even Number' : 'Odd Number' }}</h4>
+</div>
 
- <!-- Template statements () = statement -->
+<!-- Template statements () = statement -->
 
- <div>
-    <p>My course :: {{courseName}}</p>
-    <p (click)="changeName()">click here to change name to typescript</p>
- </div>
- 
- <!-- Template variable  -->
+<div>
+  <p>My course :: {{courseName}}</p>
+  <p (click)="changeName()">click here to change name to typescript</p>
+</div>
 
- <div>
-   Enter the name :  <input type="text" #uName placeholder="Enter your name"> 
-   <button (click)="showUser(uName.value)">Show</button>
+<!-- Template variable  -->
 
-   <p>{{username}}</p>
- </div>
+<div>
+  Enter the name : <input type="text" #uName placeholder="Enter your name">
+  <button (click)="showUser(uName.value)">Show</button>
 
- <hr>
+  <p>{{username}}</p>
+</div>
 
- <div>
+<hr>
+
+<div>
   ============ data binding ==============
- </div>
+</div>
 
- <!-- property binding  -->
- <img src="{{imageUri}}" alt="Google image"> or
- <img [src]="imageUri" alt="Google image"> or 
- <img bind-src="imageUri" alt="Google image"> 
+<!-- property binding  -->
+<img src="{{imageUri}}" alt="Google image"> or
+<img [src]="imageUri" alt="Google image"> or
+<img bind-src="imageUri" alt="Google image">
 
- <!-- attribute binding  -->
+<!-- attribute binding  -->
 
- <table class="table table-responsive table-bordered text-center table-shadow table-striped table-hover border-primary">
-   <thead>
-      <tr>
-        <th rowspan="noOfRows" class="align-middle">Name</th>
-        <th [attr.colspan]="noOfColumns">Marks</th>
-      </tr>
-      <tr>
-         <th>Test</th>
-         <th>Retest</th>
-      </tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td class="align-middle">John Doe</td>
-         <td>78</td>
-         <td class="font-weight-bold">NA</td>
-      </tr>
-      <tr>
-         <td class="table-active">Emily Carter</td>
-         <td>48</td>
-         <td>86</td>
-       </tr>
-    </tbody>
+<table class="table table-responsive table-bordered text-center table-shadow table-striped table-hover border-primary">
+  <thead>
+    <tr>
+      <th rowspan="noOfRows" class="align-middle">Name</th>
+      <th [attr.colspan]="noOfColumns">Marks</th>
+    </tr>
+    <tr>
+      <th>Test</th>
+      <th>Retest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="align-middle">John Doe</td>
+      <td>78</td>
+      <td class="font-weight-bold">NA</td>
+    </tr>
+    <tr>
+      <td class="table-active">Emily Carter</td>
+      <td>48</td>
+      <td>86</td>
+    </tr>
+  </tbody>
 </table>
 
 <!-- class binding  -->
@@ -67,31 +67,305 @@
 
 <!-- style binding  -->
 <button [style.background-color]="applyStyle ? 'pink' : 'green' ">Click here !!</button> <br>
-<button [style.background-color]="applyStyle ? 'orange' : 'greenyellow'" [style.color]="applyStyle ? 'black' : 'white'">Click Me!!</button> <br>
+<button [style.background-color]="applyStyle ? 'orange' : 'greenyellow'"
+  [style.color]="applyStyle ? 'black' : 'white'">Click Me!!</button> <br>
 <button [style]="applyStyle ? styleObj1 : styleObj2">Click Me!!</button> <br><br>
 
 <!-- event binding  -->
-<div (mouseover)="onMouse()"  on-mouseleave="onMouseLeave()"> click here to see events</div><br> <br>
+<div (mouseover)="onMouse()" on-mouseleave="onMouseLeave()"> click here to see events</div><br> <br>
 
 <div>Hii : {{mouse}}</div> <br><br>
 
 <!-- two way binding  -->
 
 <form class="form">
-   <div class="form-group">
-   <label for="userName">Username : </label> &nbsp; <span class="text-danger">{{userName}}</span>
-   <input class="form-control" type="text" name="userName" [(ngModel)]="userName">
-   </div>
-   <div class="form-group">
-      <label for="password">Password : </label> &nbsp; <span class="text text-danger">{{password}}</span>
-      <input class="form-control" type="password"  name="password" [(ngModel)]="password">
-   </div>
+  <div class="form-group">
+    <label for="userName">Username : </label> &nbsp; <span class="text-danger">{{userName}}</span>
+    <input class="form-control" type="text" name="userName" [(ngModel)]="userName">
+  </div>
+  <div class="form-group">
+    <label for="password">Password : </label> &nbsp; <span class="text text-danger">{{password}}</span>
+    <input class="form-control" type="password" name="password" [(ngModel)]="password">
+  </div>
 
-   <button class="btn btn-primary" on-click="submit()">submit</button>
+  <button class="btn btn-primary" on-click="submit()">submit</button>
 </form> <br>
 
 <div class="text text-success">{{successMessage}}</div>
 
+<br><br>
+
+<div>==============directives =======================</div>
+
+<!-- ngIf structural directive  -->
+
+<div class=" container container-fluid">
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+      <div class="card shadow" *ngIf="!loginSuccess && ! loginFailed">
+        <div class="card-header text-center">
+          <h3 style="font-family: cursive;">Login</h3>
+        </div>
+        <form class="ml-3 mr-3 mb-3 ps-2 pe-2">
+          <div class="form-group">
+            <label for="userName">User Name : </label>
+            <input class="form-control" type="text" name="userName" [(ngModel)]="userName">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" type="password" name="password" [(ngModel)]="password">
+          </div>
+          <div class="text-center mt-3">
+            <button type="submit" class="btn btn-outline-success" (click)="login()">Login</button>
+          </div>
+
+        </form>
+      </div>
+      <div *ngIf="loginFailed" class="text-center">
+        <img src="loginfailed.png" alt="login failed">
+        <h4 style="font-family: cursive;">Invalid Credentials</h4>
+      </div>
+      <div *ngIf="loginSuccess" class="text-center">
+        <img src="loginsuccess.png" alt="login successful">
+        <h4 style="font-family: cursive;">Welcome {{userName}}!!</h4>
+      </div>
+      <div *ngIf="loginSuccess || loginFailed" class="text-center">
+        <button class="btn btn-outline-warning" (click)="loginSuccess=loginFailed=false">Go Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br><br>
+
+<!-- ngFor directive  -->
+
+<hr>
+<div class="container container-fluid">
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+      <div class="card shadow">
+        <div class="card-header text-center">
+          <h3 style="font-family: cursive;">ngFor directive </h3>
+        </div>
+        <div class="card-body">
+
+          <ul>
+            <li *ngFor="let course of courses;  let i = index">
+              {{i}} - {{ course.name }}
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br><br>
+<hr>
+
+<!-- ngSwitch directive  -->
+
+<div class=" container container-fluid">
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+      <div class="card shadow">
+        <div class="card-header text-center">
+          <h3 style="font-family: cursive;">ngSwitch directive </h3>
+        </div>
+        <div class="card-body">
+
+          <ul>
+            <li *ngFor="let choice of choices;">
+              <div [ngSwitch]="choice">
+                <p class="bg-danger text-light" *ngSwitchCase="'red'">Choice is {{choice}}</p>
+                <p class="bg-primary text-light" *ngSwitchCase="'blue'">Choice is {{choice}}</p>
+                <p class="bg-success text-light" *ngSwitchCase="'green'">Choice is {{choice}}</p>
+                <p class="bg-warning" *ngSwitchCase="'orange'">Choice is {{choice}}</p>
+                <p class="bg-dark text-light" *ngSwitchCase="'black'">Choice is {{choice}}</p>
+                <p class="bg-light text-dark" *ngSwitchCase="'white'">Choice is {{choice}}</p>
+                <p *ngSwitchDefault>Default Choice</p>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br><br>
+<hr>
+
+<!-- ngStyle directive -->
+
+<div class="container container-fluid">
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+      <div class="card shadow">
+        <div class="card-header text-center bg-info text-dark">
+          <h3 class="font-family: cursive; card-title">ngStyle</h3>
+        </div>
+        <div class="card-body">
+
+          <div [ngStyle]="{
+            color: colorName,
+            'font-weight': fontWeight,
+            border : border
+          }"> This is ng Style div</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br><br>
+<hr>
+
+<!-- ngClass directive -->
+
+<div class="container container-fluid">
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+      <div class="card shadow">
+        <div class="card-header text-center bg-info text-dark">
+          <h3 class="font-family: cursive; card-title">ngClass</h3>
+        </div>
+        <div class="card-body">
+
+          <div [ngClass]="{
+            bordered:isBorder,
+            myStyle:isStyle
+          }"> This is ng Class div</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br><br>
+<hr>
+
+<!-- create custom directive appRepeat  -->
+
+<div class="container container-fluid">
+  <div class="row mt-5">
+    <div *appRepeat="8" class="col col-md-3">
+      <div class="card shadow">
+        <div class="card-header text-center bg-info text-dark">
+          <h3 class="font-family: cursive; card-title">my card</h3>
+        </div>
+        <div class="card-body">
+          <div> This is card demos</div>
+        </div>
+      </div>
+    </div>
 
 
+  </div>
+</div>
+<br><br>
+<input type="text" [(ngModel)]="buttonColor">
+<button appButton [buttonColor]="buttonColor">Click Me!!</button>
 
+<br><br><br><br>
+<hr><br>
+
+<div class="container container-fluid">
+  <div class="row mt-5">
+    <div class="col col-md-6 offset-md-3">
+      <div class="card shadow">
+        <div class="card-header text-center bg-info text-dark">
+          <h3 class="font-family: cursive; card-title">Built-in pipe </h3>
+        </div>
+        <div class="card-body">
+          <div class="card-text">
+
+            <!-- uppercase, lowercase, titlecase -->
+            <p>uppercase ==> {{ "Laptop" | uppercase }}</p>
+            <p>lowercase ==> {{ "LAPTOP" | lowercase }}</p>
+            <p>titlecase ==> {{ "product details" | titlecase }}</p>
+
+            <!-- currency -->
+            <p>currency ==> {{ 66600 | currency }}</p>
+            <p>currency:'CAD' ==> {{ 66600 | currency : 'CAD' }}</p>
+            <p>currency :'INR' ==>{{ 66600 | currency :'INR' }}</p>
+            <p>currency :'INR' :'code' ==> {{ 66600 | currency :'INR' :'code' }}</p>
+            <p>currency :'INR' :'symbol' ==> {{ 66600 | currency :'INR' :'symbol' }}</p>
+            <p>currency :'INR' :'myOwnString' ==> {{ 66600 | currency :'INR' :'myOwnString' }}</p>
+            <p>currency :'INR' :'code' :'6.2-3' ==> {{ 66600 | currency :'INR' :'code' :'6.2-3'}}</p>
+            <p>currency :'INR' :'code' :'1.3' ==> {{ 66600 | currency :'INR' :'code' :'1.3'}}</p>
+
+            <!-- percent -->
+            <p>percent ==> {{ 0.1 | percent }}</p>
+            <p>percent:'2.2-3' ==> {{ 0.1 | percent:'2.2-3' }}</p>
+
+            <!-- number  -->
+            <p>number ==> {{ 25000 | number }}</p>
+            <p>number:'.3-5' ==> {{ 25000 | number:'.3-5' }}</p>
+
+            <!-- date -->
+            <p>date ==> {{ "6/2/2017" | date }}</p>
+            <p>date:'medium' ==> {{ "6/2/2017, 11:30:45 AM" | date:'medium' }}</p>
+            <p> date:'mmss' ==> {{ "6/2/2017, 11:30:45 AM" | date:'mmss' }}</p>
+
+            <!-- slice  -->
+            <p>slice:2 ==> {{ ['a','b','c','d']| slice:2}}</p>
+            <p>slice:1:3 ==> {{ ['a','b','c','d']| slice:1:3}}</p>
+            <p>slice:3:6 ==> {{ 'Laptop Charger'| slice:3:6}}</p>
+            <p>slice:-4 ==> {{ 'Laptop Charger'| slice:-4}}</p>
+            <p>slice:-4:-2 ==> {{ 'Laptop Charger'| slice:-4:-2}}</p>
+
+            <!-- json  -->
+            <p>json ==> {{ {'productId':1234, 'productName':'Samsung Mobile'} | json }}</p>
+
+            <!-- combined pipe  -->
+            <p> date | uppercase | slice:0:3 ==> Month is{{ "2018-11-11" | date | uppercase | slice:0:3 }} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<br><br><br><br>
+<hr>
+
+<div class="container container-fluid">
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+      <div class="card shadow">
+        <div class="card-header text-center bg-primary text-dark">
+          <h3 class="font-family:cursive; card-title">Custom pipe </h3>
+        </div>
+        <div class="card-body">
+          <h2> Sorting Products list using custom pipe </h2>
+          Sort the list based on
+          <select [(ngModel)]="sortoption">
+            <option value="prodName">Product Name</option>
+            <option value="price">Price</option>
+          </select><br /><br />
+          <table class="table table-bordered table-striped table-shadow table-hover text-center">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let products of productsList | sort:sortoption">
+                <td>{{products.productName}}</td>
+                <td>{{products.price}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br><br><hr>
