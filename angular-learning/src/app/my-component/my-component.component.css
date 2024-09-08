@@ -1,0 +1,10 @@
+.bordered{
+    border: 2px dotted blue;
+    background-color: rgb(251, 252, 253);
+}
+.myStyle{
+    color: green;
+    font-weight: bold;
+    text-decoration: underline;
+    text-shadow: 1px purple;
+}

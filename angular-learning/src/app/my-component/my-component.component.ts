@@ -56,11 +56,55 @@ export class MyComponentComponent {
     this.mouse = "";
   }
 
-  userName!:string;
-  password!:string;
-
   successMessage!:string;
   submit(){
     this.successMessage = "submitted successfully!!";
   }
+
+  userName: string='';
+  password: string='';
+  loginSuccess = false;
+  loginFailed = false;
+  login() {
+    this.loginFailed = this.loginSuccess = false;
+    if (this.userName == "admin" && this.password == "admin@123") {
+      this.loginSuccess = true
+    } else {
+      this.loginFailed = true;
+    }
+  }
+
+
+  courses: any[] = [
+    { id: 1, name: "TypeScript" },
+    { id: 2, name: "Angular" },
+    { id: 3, name: "Node JS" },
+    { id: 1, name: "TypeScript" }
+  ];
+
+  choices : string[] = [
+    "red","blue","orange","green","black","white"
+  ];
+
+  choice!:string;
+
+  colorName = 'green';
+  fontWeight = 'bold';
+  border =  '2px solid blue';
+
+
+  isBorder = true;
+  isStyle = true;
+
+  buttonColor = 'green';
+
+  sortoption: string = "";
+  productsList = [
+    { productName: "Samsung J7", price: 18000 },
+    { productName: "Apple iPhone 6S", price: 60000 },
+    { productName: "Lenovo K5 Note", price: 10000 },
+    { productName: "Nokia 6", price: 15000 },
+    { productName: "Vivo V5 Plus", price: 26000 }
+  ];
+  
 }
