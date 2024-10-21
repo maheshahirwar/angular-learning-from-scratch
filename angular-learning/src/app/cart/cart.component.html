@@ -1,0 +1,30 @@
+<div class="container container-fluid">
+    <div class="row mt-5">
+        <div class="col col-md-10 offset-md-1">
+            <div class="card shadow">
+                <div class="card-header text-center bg-info text-dark">
+                    <h3 class="font-family: cursive; card-title">Products</h3>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <div>Item</div>
+                        <div>Price</div>
+                        <div>Quantity</div>
+                        <div>Total Price</div>
+                        <div>
+                    </div>
+                        <!-- Table -->
+                        <div class="list-group">
+                            <app-cart-item *ngFor="let item of cartItems; let i = index"
+                                [cartItem]="item" (cartItemDeleted)="onCartItemDeleted(item.id)"
+                                (cartItemChanged)="onCartItemChanged(item.id)">
+                            </app-cart-item>
+                        </div>
+                        <div class="text-center bg-dark text-light">
+                            <h4>Total {{cartTotal}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
