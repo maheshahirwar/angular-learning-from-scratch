@@ -24,7 +24,7 @@ export class CarDetailsComponent implements OnInit{
     this.carService.getCarById(id).subscribe(car => {
       this.car = car;
     });
-    this.total = 0;
+    this.total = this.carService.getTotalCount();
   }
   addToCart(car:CarData){
     this.carService.addToCart(car);

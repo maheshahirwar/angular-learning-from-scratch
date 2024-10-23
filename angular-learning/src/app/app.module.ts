@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { CarDetailsComponent } from './car-details/car-details.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { CarDetailsComponent } from './car-details/car-details.component';
     AppRoutingModule,
     MyModuleModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [
     provideClientHydration(),
