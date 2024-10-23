@@ -1,0 +1,29 @@
+<div class="container container-fluid">
+    <div class="row mt-5">
+        <div class="col col-md-6 offset-md-3">
+            <div class="card shadow">
+                <div class="card-header text-center bg-info text-dark">
+                    <h3 class="font-family:cursive; card-title">Car Details</h3>
+                </div>
+                <div class="card-body">
+                    <div *ngIf="car">
+                        <p>Make: {{ car.make }}</p>
+                        <p>Model: {{ car.model }}</p>
+                        <p>Year: {{ car.yearModel }}</p>
+                        <p>Price: ${{ car.price }}</p>
+                        <p>Location: {{ car.carLocation }}</p>
+                        <p>Licensed : {{car.licensed}}</p>
+                        <p>DataAdded : {{car.dataAdded}}</p>
+                        <p>WarehouseId : {{car.warehouseId}}</p>
+                        <p>warehouseName : {{car.warehouseName}}</p>
+                        <button class="btn btn-outline-warning" (click)="addToCart(car)">Add To Cart</button> &nbsp;&nbsp;
+                        <button class="btn btn-primary" [routerLink]="['/viewcart']">View Cart <span *ngIf="total" class="badge rounded-pill bg-danger">{{total}}</span></button>
+                    </div>
+                    <div *ngIf="!car">
+                        <p>Car not found!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

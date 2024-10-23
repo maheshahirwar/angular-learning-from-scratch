@@ -1,0 +1,71 @@
+<div class="container container-fluid">
+    <div class="row mt-5">
+        <div class="col col-md-10 offset-md-1">
+            <div class="card shadow">
+                <div class="card-header text-center bg-info text-dark">
+                    <h3 class="font-family: cursive; card-title">Cart Items </h3>
+                </div>
+                <div class="card-body">
+
+                    <div *ngIf="cartItems.length>0">
+                        <div *ngFor="let item of cartItems">
+                            <hr>
+                            <div class="border border-primary text-dark text-center rounded">
+                                <table class="table table-hovor table-bordered">
+                                    <tr>
+                                        <td>
+                                            <h4>Item : </h4>
+                                        </td>
+                                        <td>
+                                            <h4>{{item.name}}</h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Price :
+                                        </td>
+                                        <td>{{item.price | currency:'INR':'symbol':'1.2-2'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quantity : </td>
+                                        <td>
+                                            <input class="bg-secondary text-dark" type="number" value={{item.quantity}}
+                                                min=1 id={{item.id}} [(ngModel)]="item.quantity"
+                                                (change)="onCartItemChanged(item)">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Price : </td>
+                                        <td>{{item.price * item.quantity | currency:'INR':'symbol':'1.2-2'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="cursor-pointer" (click)="onCartItemDeleted(item.id)"><i
+                                                class="fas fa-trash text-danger">Remove</i></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <br>
+                        </div>
+
+                        <div class="text-center bg-dark text-light">
+                            <h4>Total {{cartTotal | currency:'INR':'symbol':'1.2-2'}}</h4>
+                        </div>
+                    </div>
+                    <div *ngIf="cartItems.length==0">
+                        <div class="text-center">
+                            <p><i class="fas fa-cart-plus"></i></p>
+                            <h5>Your cart is empty</h5>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-danger text-light" [routerLink]="['/home']"><i class="fas fa-plus-circle"> Start Shopping</i></button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="cartItems.length>0" class="card-footer text-center">
+                    <button class="btn btn-success" [routerLink]="['/home']"><i class="fas fa-plus-circle">Add More
+                            Items</i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

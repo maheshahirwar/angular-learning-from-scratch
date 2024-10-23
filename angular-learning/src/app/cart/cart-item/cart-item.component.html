@@ -1,0 +1,28 @@
+<div class="container container-fluid">
+    <div class="row mt-5">
+        <div class="col col-md-6 offset-md-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div>
+                        {{cartItem.name}}
+                    </div>
+                    <div>
+                        {{cartItem.price}} Rs.
+                    </div>
+                    <div>
+                        <input type="number" value={{cartItem.quantity}} min=1 id={{cartItem.id}}
+                            [(ngModel)]="cartItem.quantity" (change)="onCartItemChanged(cartItem.id)">
+                    </div>
+                    <div>
+                        {{cartItem.quantity * cartItem.price}} Rs.
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-outline-danger" id={{cartItem.id}}
+                            (click)="onCartItemDeleted(cartItem.id)"> delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
