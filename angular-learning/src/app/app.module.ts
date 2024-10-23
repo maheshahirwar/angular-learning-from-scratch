@@ -10,6 +10,10 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { HomeComponent } from './home/home.component';
+import { ViewCartComponent } from './view-cart/view-cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CarDetailsComponent } from './car-details/car-details.component';
 
 
 @NgModule({
@@ -18,13 +22,17 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
     ShoppingcartComponent,
     CartComponent,
     ProductComponent,
-    CartItemComponent
+    CartItemComponent,
+    HomeComponent,
+    ViewCartComponent,
+    CarDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MyModuleModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()

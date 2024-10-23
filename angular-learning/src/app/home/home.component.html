@@ -1,0 +1,19 @@
+<div class="container container-fluid">
+    <div class="row mt-5 border border-danger rounded">
+        <hr>
+        <div *ngFor="let car of cars" class="col col-md-3 offset-md-0">
+          <div class="card shadow">
+            <div class="card-header text-center bg-primary text-dark">
+                <h3 class="font-family:cursive; card-title">{{car.make}} </h3>
+              </div>
+              <div class="card-body">
+                <p>Model : {{car.model}} ({{ car.yearModel }})</p>
+                <p>Price :: {{car.price | currency:'INR':'symbol':'1.2-2'}}</p>
+                <button class="btn btn-outline-info" [routerLink]="['/car', car.id]">More details</button>
+              </div>
+          </div>
+        </div>
+        <br>
+      </div>
+  </div>
+
