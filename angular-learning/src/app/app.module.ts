@@ -12,7 +12,7 @@ import { ProductComponent } from './product/product.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { HomeComponent } from './home/home.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { CarDetailsComponent } from './car-details/car-details.component';
 
 
@@ -35,7 +35,8 @@ import { CarDetailsComponent } from './car-details/car-details.component';
     HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent]
 })
