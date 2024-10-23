@@ -49,8 +49,9 @@ export class CarService {
 
   addToCart(car:CarData) {
     const index = this.cartItems.findIndex( elem => elem.id == car.id )
-    this.totalCount++;
+    
     if (index===-1) {
+      this.totalCount++;
       this.cartItems.push({
           id: car.id,
           name: car.make,
