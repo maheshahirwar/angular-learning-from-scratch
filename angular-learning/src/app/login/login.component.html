@@ -1,0 +1,39 @@
+<div class="container container-fluid">
+    <div class="row mt-5">
+        <div class="col col-md-6 offset-md-3">
+            <div class="card shadow">
+                <div class="card-header text-center bg-success text-light">
+                    <h4 class="font-family:cursive; card-title">Login Form</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="loginForm">
+                        <div class="form-group">
+                            <label for="email"><sup class="text-danger">*</sup>Email : </label>
+                            <input type="text" class="form-control border border-info" formControlName="email" placeholder="Enter Your Email">
+                            <span *ngIf="(loginForm.controls['email'].dirty || loginForm.controls['email'].touched) && loginForm.controls['email'].errors" class="text-danger">This field is required</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><sup class="text-danger">*</sup>Password : </label>
+                            <input type="password" class="form-control border border-info" formControlName="password" placeholder="Enter Your Password">
+                            <span *ngIf="(loginForm.controls['password'].dirty || loginForm.controls['password'].touched) && loginForm.controls['password'].errors" class="text-danger">This field is required</span>
+                        </div> <br>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" (click)="login()">Login</button>
+                        </div>
+                    </form>
+
+                    <div *ngIf="errorMessage">
+                        <span class="text-danger">{{errorMessage}}</span>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <h4>Or</h4>
+                    </div><br><br>
+                    <div class="text-center">
+                        <asl-google-signin-button type='icon' size='medium'></asl-google-signin-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

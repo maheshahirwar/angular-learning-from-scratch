@@ -8,6 +8,4 @@ import { CarService } from './car.service';
 })
 export class AppComponent{
   title = 'angular-learning';
-
-  
 }
