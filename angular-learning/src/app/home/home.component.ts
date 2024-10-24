@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { CarService } from '../car.service';
 import { CarData } from '../CarData';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { GoogleLoginProvider, SocialAuthService } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +15,7 @@ export class HomeComponent {
   cars: CarData[] = [];
   selectedCar?: CarData;
 
-  constructor(private carService: CarService) {}
+  constructor(private carService: CarService, private authService:AuthService, private router:Router,private auth:SocialAuthService) {}
 
   ngOnInit(): void {
     // Fetch all cars from the JSON file
@@ -28,5 +31,10 @@ export class HomeComponent {
     });
   }
 
+  logout(){
+    this.auth.signOut();
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
   
 }

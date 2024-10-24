@@ -3,13 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
+import { LoginComponent } from './login/login.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component : HomeComponent},
-  {path:'viewcart',component : ViewCartComponent},
-  {path:'car/:id', component : CarDetailsComponent},
-  {path:'**', redirectTo:'/home'}
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'login', component : LoginComponent},
+  {path: 'home', component : HomeComponent, canActivate:[authGuard]},
+  {path:'viewcart',component : ViewCartComponent, canActivate:[authGuard]},
+  {path:'car/:id', component : CarDetailsComponent, canActivate:[authGuard]},
+  {path:'**', redirectTo:'/login'}
 ];
 
 @NgModule({

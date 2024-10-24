@@ -1,0 +1,10 @@
+#logout:hover{
+    color: rgb(246, 241, 248);
+    font: bold;
+    /* background-color: blue; */
+}
+
+#logout{
+    color: rgb(76, 111, 250);
+    /* background-color: blue; */
+}
